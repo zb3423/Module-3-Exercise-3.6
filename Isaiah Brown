@@ -1,0 +1,29 @@
+import java.util.Scanner;
+
+public class ComputeAndInterpretBMI {
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+
+        System.out.print("Enter weight in pounds: ");
+        double weight = input.nextDouble();
+
+        System.out.print("Enter height (feet and inches): ");
+        int feet = input.nextInt();
+        int inches = input.nextInt();
+
+        // Calculate BMI directly
+        double heightInMeters = ((feet * 12) + inches) * 0.0254;
+        double bmi = (weight * 0.453592) / (heightInMeters * heightInMeters);
+
+        System.out.printf("BMI is %.2f\n", bmi);
+        
+        // Simplified interpretation using ternary conditions
+        System.out.println(
+            bmi < 18.5 ? "Underweight" :
+            bmi < 24.9 ? "Normal weight" :
+            bmi < 29.9 ? "Overweight" : "Obese"
+        );
+
+        input.close();
+    }
+}
